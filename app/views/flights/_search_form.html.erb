@@ -1,0 +1,11 @@
+<%= form_with url: flights_path, method: :get do |form| %>
+  <%= form.label :departure_id, 'Departing from:' %>
+  <%= form.select :departure_id, options_for_select(@airports, selected: params[:departure_id]), {}, {class: 'form-select'} %>
+  <%= form.label :arrival_id, 'To:' %>
+  <%= form.select :arrival_id, options_for_select(@airports, selected: params[:arrival_id]), {}, {class: 'form-select'} %>
+  <%= form.label :passengers, 'Number of passengers:' %>
+  <%= form.select :passengers, options_for_select([1, 2, 3, 4], selected: params[:passengers]), {}, {class: 'form-select'} %>
+  <%= form.label :depart_date, 'Date:' %>
+  <%= date_select 'depart_date', 'date', { discard_day: true, order: %i[month year], selected: @date }, {class: 'form-select'} %>
+  <%= form.submit 'Search' %>
+<% end %>
