@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start: 2022-08-09 18:53:19
+  duration: MyString
+  arrival: one
+  departure: one
+
+two:
+  start: 2022-08-09 18:53:19
+  duration: MyString
+  arrival: two
+  departure: two
