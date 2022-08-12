@@ -1,0 +1,26 @@
+<%= form_with model: @booking do |f| %>
+  <%= f.label :departure_id, 'Departing from:' %>
+  <%= f.text_field :departure_id, value: @flight.departure_airport.name,  disabled: true %>
+  <%= f.label :arrival_id, 'To:' %>
+  <%= f.text_field :arrival_id, value: @flight.arrival_airport.name,  disabled: true %>
+  <%= f.label :passengers, 'Passengers:' %>
+  <%= f.text_field :passengers, value: params[:passengers], disabled: true %>
+  <%= f.label :date, 'Date' %>
+  <%= f.text_field :date, value: @flight.start, disabled: true %>
+  <%= f.label :flight_id, 'Flight ID' %>
+  <%= f.text_field :flight_id, readonly: true %>
+  <% count = 1 %>
+  <%= f.fields_for :passengers do |sub_f| %>
+    <h3>Passenger #<%= count %></h3>
+    <div>
+      <%= sub_f.label :name, 'Name' %>
+      <%= sub_f.text_field :name %>
+    </div>
+    <div>
+      <%= sub_f.label :email, 'Email' %>
+      <%= sub_f.text_field :email %>
+    </div>
+    <% count += 1 %>
+  <% end %>
+  <%= f.submit %>
+<% end %>

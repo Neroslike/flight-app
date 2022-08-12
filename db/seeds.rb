@@ -15,3 +15,8 @@ Flight.create(duration: '6 hours', start: Time.current, arrival_id: 2, departure
 Flight.create(duration: '2 hours', start: Time.current, arrival_id: 1, departure_id: 4)
 Flight.create(duration: '3 hours', start: Time.current, arrival_id: 4, departure_id: 3)
 Flight.create(duration: '8 hours', start: Time.current, arrival_id: 3, departure_id: 1)
+Flight.create(duration: '3 hours', start: Time.current, arrival_id: 2, departure_id: 1)
+Flight.create(duration: '3 hours', start: Time.current + 1.day, arrival_id: 2, departure_id: 1)
+Flight.create(duration: '3 hours', start: Time.current + 2.days, arrival_id: 2, departure_id: 1)
+Flight.create(duration: '3 hours', start: Time.current + 3.days, arrival_id: 2, departure_id: 1)
+Flight.create(duration: '3 hours', start: Time.current + 4.days, arrival_id: 2, departure_id: 1)

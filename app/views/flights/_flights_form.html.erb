@@ -1,0 +1,19 @@
+<% if @flights && @flights.any? %>
+  <%= form_with url: 'bookings/new', method: :get do |f| %>
+    <ul class='list-group flight-list'>
+      <% @flights.each do |flight| %>
+        <li class='list-group-item'>
+          <%= f.radio_button :flight, flight.id, class: 'form-check-input' %>
+          <%= f.label "flight_#{flight.id}", class: 'form-check-label stretched-link' do %>
+            <p>Departing from the <%= flight.departure_airport.name %> (<%= flight.departure_airport.code %>) to
+            <%= flight.arrival_airport.name %> (<%= flight.arrival_airport.code %>) at <%= flight.start %></p>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+    <%= f.hidden_field :passengers, value: params[:passengers] %>
+    <%= f.submit 'Book', class: 'btn btn-primary submit-button' %>
+  <% end %>
+<% else %>
+  <p>No flights available</p>
+<% end %>
